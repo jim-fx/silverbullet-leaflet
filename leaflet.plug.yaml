@@ -1,0 +1,5 @@
+name: leaflet
+functions:
+  leafletWidget:
+    path: ./leaflet.ts:widget
+    codeWidget: leaflet
