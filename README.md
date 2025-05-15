@@ -24,6 +24,10 @@ deno task build && cp *.plug.js /my/space/_plug/
 
 SilverBullet will automatically sync and load the new version of the plug, just watch the logs (browser and server) to see when this happens.
 
+```bash
+deno install --force --name silverbullet --allow-all https://get.silverbullet.md --global
+```
+
 ## Installation
 If you would like to install this plug straight from Github, make sure you have the `.js` file committed to the repo and simply add
 
