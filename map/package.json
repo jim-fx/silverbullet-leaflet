@@ -10,9 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@excalidraw/excalidraw": "^0.18.0",
     "leaflet": "^1.9.4",
-    "preact": "^10.26.6",
     "react": "19.0.0-rc.1",
     "react-dom": "19.0.0-rc.1",
     "react-leaflet": "5.0.0-rc.2",
