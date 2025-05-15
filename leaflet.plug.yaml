@@ -1,4 +1,7 @@
 name: leaflet
+version: 0.1
+assets:
+  - "assets/**/*.*"
 functions:
   leafletWidget:
     path: ./leaflet.ts:widget

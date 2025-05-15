@@ -1,11 +1,13 @@
 {
   "tasks": {
-    "build": "silverbullet plug:compile -c deno.jsonc leaflet.plug.yaml",
+    "build": "cd map && pnpm build && cd .. && silverbullet plug:compile -c deno.jsonc leaflet.plug.yaml",
     "watch": "silverbullet plug:compile -c deno.jsonc leaflet.plug.yaml -w"
   },
   "lint": {
     "rules": {
-      "exclude": ["no-explicit-any"]
+      "exclude": [
+        "no-explicit-any"
+      ]
     }
   },
   "fmt": {

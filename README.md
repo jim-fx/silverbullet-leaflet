@@ -1,12 +1,39 @@
 
-# SilverBullet plug template
+# SilverBullet Leaflet Plug
 
-Insert your plug description here
+Embedded Leaflet map for SilverBullet.
+
+## Usage
+
+Example snippet:
+
+```markdown
+\`\`\`leaflet
+lat: 59.025009
+lng: 12.225037
+zoom: 10
+markers:
+  - lat: 59.025009
+    lng: 12.225037
+    title: STARTPUNKT
+    description: Das ist meine </br>description
+polylines:
+  - name: TestLine
+    points:
+      - [59.025009, 12.225037]
+      - [59.025109, 12.225337]
+      - [59.025209, 12.224837]
+\`\`\`
+```
 
 ## Build
-To build this plug, make sure you have [SilverBullet installed with Deno](https://silverbullet.md/Install/Deno). Then, build the plug with:
 
-```shell
+```bash
+# Install Silverbullet
+deno install --force --name silverbullet --allow-all https://get.silverbullet.md --global
+# Install dependencies
+cd map && pnpm install
+# Build the plug
 deno task build
 ```
 
@@ -24,15 +51,12 @@ deno task build && cp *.plug.js /my/space/_plug/
 
 SilverBullet will automatically sync and load the new version of the plug, just watch the logs (browser and server) to see when this happens.
 
-```bash
-deno install --force --name silverbullet --allow-all https://get.silverbullet.md --global
-```
 
 ## Installation
-If you would like to install this plug straight from Github, make sure you have the `.js` file committed to the repo and simply add
+If you would like to install this plug straight from Github add
 
 ```
-- github:user/plugname/plugname.plug.js
+- "github:jim-fx/silverbullet-leaflet/leaflet.plug.js"
 ```
 
-to your `PLUGS` file, run `Plugs: Update` command and off you go!
+to your `Space-Config` file, run `Plugs: Update` command and off you go!
