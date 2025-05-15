@@ -1021,7 +1021,7 @@
       "format": "esm"
     },
     "map.tsx": {
-      "bytes": 2091,
+      "bytes": 2068,
       "imports": [
         {
           "path": "node_modules/.pnpm/leaflet@1.9.4/node_modules/leaflet/dist/leaflet.css",
@@ -1162,7 +1162,7 @@
           "bytesInOutput": 172
         },
         "map.tsx": {
-          "bytesInOutput": 1255
+          "bytesInOutput": 1240
         },
         "icons.tsx": {
           "bytesInOutput": 141
@@ -1180,7 +1180,7 @@
           "bytesInOutput": 420
         }
       },
-      "bytes": 406111
+      "bytes": 406096
     },
     "../assets/map.css": {
       "imports": [
