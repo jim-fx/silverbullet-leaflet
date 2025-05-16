@@ -1,15 +1,9 @@
 import "leaflet/dist/leaflet.css";
 import "./map.css";
-import {
-  MapContainer,
-  Marker,
-  Polyline,
-  Popup,
-  TileLayer,
-} from "react-leaflet";
+import { MapContainer, Polyline, TileLayer } from "react-leaflet";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { IconMarker } from "./icons.tsx";
+import { Marker } from "./icons.tsx";
 import { MapData, MapDataSchema } from "./types.ts";
 import { ZodError } from "zod";
 
@@ -31,6 +25,7 @@ function ErrorContent({ error }: { error: ZodError<MapData> }) {
 function App({ configRaw }: { configRaw: unknown }) {
   const res = MapDataSchema.safeParse(configRaw);
   if (res.error) {
+    console.log("Invalid Map Config", res.error);
     return <ErrorContent error={res.error} />;
   }
   const config = res.data;
@@ -42,23 +37,7 @@ function App({ configRaw }: { configRaw: unknown }) {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {config?.markers?.map((marker, i) => (
-        <Marker
-          key={i}
-          position={[marker.lat, marker.lng]}
-          title={marker.title}
-          icon={IconMarker}
-        >
-          {(marker.title || marker.description) && (
-            <Popup>
-              {marker.title && <h4>{marker.title}</h4>}
-              {marker.description && (
-                <div dangerouslySetInnerHTML={{ __html: marker.description }} />
-              )}
-            </Popup>
-          )}
-        </Marker>
-      ))}
+      {config?.markers?.map((marker, i) => <Marker key={i} {...marker} />)}
       {config?.polylines?.map((line, i) => (
         <Polyline
           key={i}
