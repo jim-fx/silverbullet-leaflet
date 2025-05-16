@@ -1,7 +1,7 @@
 
 # SilverBullet Leaflet Plug
 
-Embedded Leaflet map for SilverBullet.
+Embedded Leaflet map for SilverBullet. Inspired by [skeetcha/silverbullet-leaflet](https://github.com/skeetcha/silverbullet-leaflet).
 
 ## Usage
 
