@@ -24,6 +24,18 @@ polylines:
       - [59.025109, 12.225337]
       - [59.025209, 12.224837]
 \`\`\`
+
+You can also add emojis to your markers like in the following example:
+```markdown
+\`\`\`leaflet
+markers:
+  - lat: 59.025009
+    lng: 12.225037
+    icon: 🛶
+    iconBackground: brown
+    title: MyCanoe
+\`\`\`
+```
 ```
 
 ## Build
