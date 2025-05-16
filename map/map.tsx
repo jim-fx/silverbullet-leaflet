@@ -3,8 +3,9 @@ import "./map.css";
 import { MapContainer, Polyline, TileLayer } from "react-leaflet";
 import ReactDOM from "react-dom/client";
 import { Marker } from "./icons.tsx";
-import { MapData, MapDataSchema } from "./types.ts";
+import { MapData, MapDataSchema } from "./schemas.ts";
 import { ZodError } from "zod";
+import plugConfig from "virtual:config";
 import React from "react";
 
 const configRaw = JSON.parse(
@@ -34,7 +35,7 @@ function App({ configRaw }: { configRaw: unknown }) {
   return (
     <MapContainer center={position} zoom={config.zoom} scrollWheelZoom={false}>
       <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        attribution={`&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | v${plugConfig.version}`}
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {config?.markers?.map((marker, i) => <Marker key={i} {...marker} />)}

@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "build": "esbuild map.tsx --minify --bundle --outfile=../assets/map.js --loader:.png=dataurl --format=iife --metafile=meta.json"
+    "build": "node build.js"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +25,7 @@
     "esbuild": "^0.25.4",
     "eslint": "^9.26.0",
     "globals": "^16.1.0",
-    "typescript-eslint": "^8.32.1"
+    "typescript-eslint": "^8.32.1",
+    "yaml": "^2.8.0"
   }
 }
