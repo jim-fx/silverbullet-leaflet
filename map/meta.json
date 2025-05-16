@@ -1057,7 +1057,7 @@
       "format": "esm"
     },
     "map.tsx": {
-      "bytes": 1642,
+      "bytes": 1660,
       "imports": [
         {
           "path": "node_modules/.pnpm/leaflet@1.9.4/node_modules/leaflet/dist/leaflet.css",
@@ -1209,7 +1209,7 @@
           "bytesInOutput": 172
         },
         "map.tsx": {
-          "bytesInOutput": 932
+          "bytesInOutput": 943
         },
         "node_modules/.pnpm/leaflet@1.9.4/node_modules/leaflet/dist/images/marker-icon.png": {
           "bytesInOutput": 1988
@@ -1227,7 +1227,7 @@
           "bytesInOutput": 814
         }
       },
-      "bytes": 408005
+      "bytes": 408016
     },
     "../assets/map.css": {
       "imports": [
