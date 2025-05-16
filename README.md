@@ -7,7 +7,7 @@ Embedded Leaflet map for SilverBullet.
 
 Example snippet:
 
-```markdown
+````markdown
 ```leaflet
 lat: 59.025009
 lng: 12.225037
@@ -23,11 +23,11 @@ polylines:
       - [59.025009, 12.225037]
       - [59.025109, 12.225337]
       - [59.025209, 12.224837]
-```	
 ```
+````
 
 You can also add emojis to your markers like in the following example:
-```markdown
+````markdown
 ```leaflet
 markers:
   - lat: 59.025009
@@ -35,16 +35,14 @@ markers:
     icon: 🛶
     iconBackground: brown
     title: MyCanoe
-```	
 ```
+````
 
 ## Build
 
 ```bash
-# Install Silverbullet
-deno install --force --name silverbullet --allow-all https://get.silverbullet.md --global
-# Install dependencies
-cd map && pnpm install
+# Install Dependencies
+deno task install-deps
 # Build the plug
 deno task build
 ```
