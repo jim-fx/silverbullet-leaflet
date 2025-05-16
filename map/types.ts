@@ -5,7 +5,19 @@ export const MarkerDataSchema = z.object({
   lng: z.number().min(-180).max(180),
   title: z.string().optional(),
   description: z.string().optional(),
+  icon: z.string().optional(),
+  iconBackground: z.string().optional(),
+}).superRefine((data, ctx) => {
+  if (data.iconBackground && !data.icon) {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      message: "iconBackground can only be used when icon is set",
+      path: ["iconBackground"],
+    });
+  }
 });
+
+export type MarkerData = z.infer<typeof MarkerDataSchema>;
 
 export const LineDataSchema = z.object({
   name: z.string(),

@@ -38,7 +38,7 @@
       ]
     },
     "map.css": {
-      "bytes": 60,
+      "bytes": 190,
       "imports": []
     },
     "node_modules/.pnpm/react@19.0.0-rc.1/node_modules/react/cjs/react.production.js": {
@@ -984,12 +984,12 @@
       "imports": []
     },
     "icons.tsx": {
-      "bytes": 344,
+      "bytes": 2186,
       "imports": [
         {
-          "path": "node_modules/.pnpm/leaflet@1.9.4/node_modules/leaflet/dist/leaflet-src.js",
+          "path": "node_modules/.pnpm/react-leaflet@5.0.0-rc.2_leaflet@1.9.4_react-dom@19.0.0-rc.1_react@19.0.0-rc.1__react@19.0.0-rc.1/node_modules/react-leaflet/lib/index.js",
           "kind": "import-statement",
-          "original": "leaflet"
+          "original": "react-leaflet"
         },
         {
           "path": "node_modules/.pnpm/leaflet@1.9.4/node_modules/leaflet/dist/images/marker-icon.png",
@@ -1000,6 +1000,21 @@
           "path": "node_modules/.pnpm/leaflet@1.9.4/node_modules/leaflet/dist/images/marker-shadow.png",
           "kind": "import-statement",
           "original": "leaflet/dist/images/marker-shadow.png"
+        },
+        {
+          "path": "./types.ts",
+          "kind": "import-statement",
+          "external": true
+        },
+        {
+          "path": "node_modules/.pnpm/react@19.0.0-rc.1/node_modules/react/index.js",
+          "kind": "import-statement",
+          "original": "react"
+        },
+        {
+          "path": "node_modules/.pnpm/leaflet@1.9.4/node_modules/leaflet/dist/leaflet-src.js",
+          "kind": "import-statement",
+          "original": "leaflet"
         }
       ],
       "format": "esm"
@@ -1010,7 +1025,7 @@
       "format": "esm"
     },
     "types.ts": {
-      "bytes": 639,
+      "bytes": 1011,
       "imports": [
         {
           "path": "node_modules/.pnpm/zod@3.24.4/node_modules/zod/lib/index.mjs",
@@ -1021,7 +1036,7 @@
       "format": "esm"
     },
     "map.tsx": {
-      "bytes": 2068,
+      "bytes": 1642,
       "imports": [
         {
           "path": "node_modules/.pnpm/leaflet@1.9.4/node_modules/leaflet/dist/leaflet.css",
@@ -1162,10 +1177,7 @@
           "bytesInOutput": 172
         },
         "map.tsx": {
-          "bytesInOutput": 1240
-        },
-        "icons.tsx": {
-          "bytesInOutput": 141
+          "bytesInOutput": 1033
         },
         "node_modules/.pnpm/leaflet@1.9.4/node_modules/leaflet/dist/images/marker-icon.png": {
           "bytesInOutput": 1988
@@ -1173,14 +1185,17 @@
         "node_modules/.pnpm/leaflet@1.9.4/node_modules/leaflet/dist/images/marker-shadow.png": {
           "bytesInOutput": 856
         },
+        "icons.tsx": {
+          "bytesInOutput": 1259
+        },
         "node_modules/.pnpm/zod@3.24.4/node_modules/zod/lib/index.mjs": {
           "bytesInOutput": 60428
         },
         "types.ts": {
-          "bytesInOutput": 420
+          "bytesInOutput": 660
         }
       },
-      "bytes": 406096
+      "bytes": 407247
     },
     "../assets/map.css": {
       "imports": [
@@ -1207,10 +1222,10 @@
           "bytesInOutput": 15606
         },
         "map.css": {
-          "bytesInOutput": 48
+          "bytesInOutput": 148
         }
       },
-      "bytes": 15655
+      "bytes": 15755
     }
   }
 }
