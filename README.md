@@ -8,7 +8,7 @@ Embedded Leaflet map for SilverBullet.
 Example snippet:
 
 ```markdown
-\`\`\`leaflet
+```leaflet
 lat: 59.025009
 lng: 12.225037
 zoom: 10
@@ -23,19 +23,19 @@ polylines:
       - [59.025009, 12.225037]
       - [59.025109, 12.225337]
       - [59.025209, 12.224837]
-\`\`\`
+```	
+```
 
 You can also add emojis to your markers like in the following example:
 ```markdown
-\`\`\`leaflet
+```leaflet
 markers:
   - lat: 59.025009
     lng: 12.225037
     icon: 🛶
     iconBackground: brown
     title: MyCanoe
-\`\`\`
-```
+```	
 ```
 
 ## Build
@@ -72,3 +72,4 @@ If you would like to install this plug straight from Github add
 ```
 
 to your `Space-Config` file, run `Plugs: Update` command and off you go!
+
