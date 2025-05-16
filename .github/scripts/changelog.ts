@@ -1,33 +1,48 @@
-// scripts/changelog.ts
-const version = Deno.env.get("GIT_TAG")?.slice(1);
-if (!version) {
-  console.error("❌ GIT_TAG not provided");
+const currentTag = Deno.env.get("GIT_TAG");
+if (!currentTag?.startsWith("v")) {
+  console.error("❌ GIT_TAG must be provided and start with 'v'");
   Deno.exit(1);
 }
 
-// Get commits since last tag
-const command = new Deno.Command("git", {
-  args: ["log", "--pretty=format:* %s", `v${version}^..HEAD`],
+// Try to get the previous tag
+let range: string;
+try {
+  const prevTagCmd = new Deno.Command("git", {
+    args: ["describe", "--tags", "--abbrev=0", `${currentTag}^`],
+    stdout: "piped",
+    stderr: "null",
+  });
+  const prevResult = await prevTagCmd.output();
+  const prevTag = new TextDecoder().decode(prevResult.stdout).trim();
+  range = `${prevTag}..HEAD`;
+  console.log(`ℹ️  Generating changelog from ${prevTag} → ${currentTag}`);
+} catch {
+  console.log("ℹ️  No previous tag found, using full history");
+  range = "--reverse";
+}
+
+// Run git log
+const logCmd = new Deno.Command("git", {
+  args: ["log", "--pretty=format:* %s", range],
   stdout: "piped",
+  stderr: "piped",
 });
-const { success, stderr, stdout } = await command.output();
+const { code, stdout, stderr, success } = await logCmd.output();
+
 if (!success) {
   console.error("❌ Failed to get commits");
   console.error(new TextDecoder().decode(stderr));
-  Deno.exit(1);
+  Deno.exit(code);
 }
 
-const output = new TextDecoder().decode(stdout);
+const logText = new TextDecoder().decode(stdout).trim();
+const changelog = `## ${currentTag} - ${new Date().toISOString().split("T")[0]}
 
-const changelog = `## v${version} - ${new Date().toISOString().split("T")[0]}
-
-${output.trim() || "* No commits"}
+${logText || "* No commits"}
 
 `;
 
-await Deno.writeTextFile(
-  "CHANGELOG.md",
-  changelog + (await Deno.readTextFile("CHANGELOG.md")),
-);
+const previous = await Deno.readTextFile("CHANGELOG.md").catch(() => "");
+await Deno.writeTextFile("CHANGELOG.md", changelog + previous);
 
 console.log("✅ CHANGELOG.md updated");
