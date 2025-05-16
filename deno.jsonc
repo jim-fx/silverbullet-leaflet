@@ -2,7 +2,7 @@
   "tasks": {
     "build": "cd map && pnpm build && cd .. && silverbullet plug:compile -c deno.jsonc leaflet.plug.yaml",
     "watch": "silverbullet plug:compile -c deno.jsonc leaflet.plug.yaml -w",
-    "install-deps": "deno cache leaflet.ts && cd map && pnpm install && cd .."
+    "install-deps": "deno cache leaflet.ts && deno install --force --name silverbullet --allow-all https://get.silverbullet.md --global && cd map && pnpm install && cd .."
   },
   "lint": {
     "rules": {
