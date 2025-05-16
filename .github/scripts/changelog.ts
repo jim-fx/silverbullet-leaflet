@@ -10,9 +10,10 @@ const command = new Deno.Command("git", {
   args: ["log", "--pretty=format:* %s", `v${version}^..HEAD`],
   stdout: "piped",
 });
-const { success, stdout } = await command.output();
+const { success, stderr, stdout } = await command.output();
 if (!success) {
   console.error("❌ Failed to get commits");
+  console.error(new TextDecoder().decode(stderr));
   Deno.exit(1);
 }
 
