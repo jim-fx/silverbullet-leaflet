@@ -1,11 +1,11 @@
 import "leaflet/dist/leaflet.css";
 import "./map.css";
 import { MapContainer, Polyline, TileLayer } from "react-leaflet";
-import React from "react";
 import ReactDOM from "react-dom/client";
 import { Marker } from "./icons.tsx";
 import { MapData, MapDataSchema } from "./types.ts";
 import { ZodError } from "zod";
+import React from "react";
 
 const configRaw = JSON.parse(
   document.getElementById("map-content")?.textContent || "{}",
@@ -41,7 +41,7 @@ function App({ configRaw }: { configRaw: unknown }) {
       {config?.polylines?.map((line, i) => (
         <Polyline
           key={i}
-          color="red"
+          color={line.color ?? "black"}
           positions={line.points}
         />
       ))}

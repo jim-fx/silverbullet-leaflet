@@ -983,6 +983,22 @@
       "bytes": 618,
       "imports": []
     },
+    "node_modules/.pnpm/react@19.0.0-rc.1/node_modules/react/cjs/react-jsx-runtime.production.js": {
+      "bytes": 976,
+      "imports": [],
+      "format": "cjs"
+    },
+    "node_modules/.pnpm/react@19.0.0-rc.1/node_modules/react/jsx-runtime.js": {
+      "bytes": 210,
+      "imports": [
+        {
+          "path": "node_modules/.pnpm/react@19.0.0-rc.1/node_modules/react/cjs/react-jsx-runtime.production.js",
+          "kind": "require-call",
+          "original": "./cjs/react-jsx-runtime.production.js"
+        }
+      ],
+      "format": "cjs"
+    },
     "icons.tsx": {
       "bytes": 2186,
       "imports": [
@@ -1007,14 +1023,19 @@
           "external": true
         },
         {
-          "path": "node_modules/.pnpm/react@19.0.0-rc.1/node_modules/react/index.js",
+          "path": "react",
           "kind": "import-statement",
-          "original": "react"
+          "external": true
         },
         {
           "path": "node_modules/.pnpm/leaflet@1.9.4/node_modules/leaflet/dist/leaflet-src.js",
           "kind": "import-statement",
           "original": "leaflet"
+        },
+        {
+          "path": "node_modules/.pnpm/react@19.0.0-rc.1/node_modules/react/jsx-runtime.js",
+          "kind": "import-statement",
+          "original": "react/jsx-runtime"
         }
       ],
       "format": "esm"
@@ -1025,7 +1046,7 @@
       "format": "esm"
     },
     "types.ts": {
-      "bytes": 1011,
+      "bytes": 1272,
       "imports": [
         {
           "path": "node_modules/.pnpm/zod@3.24.4/node_modules/zod/lib/index.mjs",
@@ -1054,11 +1075,6 @@
           "original": "react-leaflet"
         },
         {
-          "path": "node_modules/.pnpm/react@19.0.0-rc.1/node_modules/react/index.js",
-          "kind": "import-statement",
-          "original": "react"
-        },
-        {
           "path": "node_modules/.pnpm/react-dom@19.0.0-rc.1_react@19.0.0-rc.1/node_modules/react-dom/client.js",
           "kind": "import-statement",
           "original": "react-dom/client"
@@ -1077,6 +1093,16 @@
           "path": "zod",
           "kind": "import-statement",
           "external": true
+        },
+        {
+          "path": "react",
+          "kind": "import-statement",
+          "external": true
+        },
+        {
+          "path": "node_modules/.pnpm/react@19.0.0-rc.1/node_modules/react/jsx-runtime.js",
+          "kind": "import-statement",
+          "original": "react/jsx-runtime"
         }
       ],
       "format": "esm"
@@ -1115,6 +1141,12 @@
         },
         "node_modules/.pnpm/react-dom@19.0.0-rc.1_react@19.0.0-rc.1/node_modules/react-dom/client.js": {
           "bytesInOutput": 253
+        },
+        "node_modules/.pnpm/react@19.0.0-rc.1/node_modules/react/cjs/react-jsx-runtime.production.js": {
+          "bytesInOutput": 364
+        },
+        "node_modules/.pnpm/react@19.0.0-rc.1/node_modules/react/jsx-runtime.js": {
+          "bytesInOutput": 51
         },
         "node_modules/.pnpm/leaflet@1.9.4/node_modules/leaflet/dist/leaflet.css": {
           "bytesInOutput": 0
@@ -1177,7 +1209,7 @@
           "bytesInOutput": 172
         },
         "map.tsx": {
-          "bytesInOutput": 1033
+          "bytesInOutput": 932
         },
         "node_modules/.pnpm/leaflet@1.9.4/node_modules/leaflet/dist/images/marker-icon.png": {
           "bytesInOutput": 1988
@@ -1186,16 +1218,16 @@
           "bytesInOutput": 856
         },
         "icons.tsx": {
-          "bytesInOutput": 1259
+          "bytesInOutput": 1227
         },
         "node_modules/.pnpm/zod@3.24.4/node_modules/zod/lib/index.mjs": {
           "bytesInOutput": 60428
         },
         "types.ts": {
-          "bytesInOutput": 660
+          "bytesInOutput": 814
         }
       },
-      "bytes": 407247
+      "bytes": 408005
     },
     "../assets/map.css": {
       "imports": [
