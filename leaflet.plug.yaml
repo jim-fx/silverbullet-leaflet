@@ -1,5 +1,5 @@
 name: leaflet
-version: 0.1
+version: 0.0.1
 assets:
   - "assets/**/*.*"
 functions:

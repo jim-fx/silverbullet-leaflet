@@ -1,0 +1,54 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+    branches:
+      - main
+
+jobs:
+  release:
+    if: github.ref_type == 'tag' && github.ref_name != ''
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+
+      - name: Run release.ts to update YAML version
+        run: deno run -A .github/scripts/release.ts
+        env:
+          GIT_TAG: ${{ github.ref_name }}
+
+      - name: Install dependencies
+        run: deno task install-deps
+
+      - name: Build plugin
+        run: deno task build
+
+      - name: Generate changelog
+        run: deno run -A .github/scripts/changelog.ts
+        env:
+          GIT_TAG: ${{ github.ref_name }}
+
+      - name: Commit changelog and version bump
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add leaflet.plug.yaml CHANGELOG.md
+          git commit -m "release: update metadata for ${{ github.ref_name }}" || echo "No changes to commit"
+          git push || true
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            CHANGELOG.md
+            leaflet.plug.js
+            leaflet.plug.yaml
+
