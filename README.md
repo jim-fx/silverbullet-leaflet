@@ -63,11 +63,24 @@ SilverBullet will automatically sync and load the new version of the plug, just 
 
 
 ## Installation
-If you would like to install this plug straight from Github add
+
+### SilverBullet v2
+
+Run the `Library: Install` command and enter the URI of `PLUG.md` in this repo:
+
+```
+ghr:jim-fx/silverbullet-leaflet/PLUG.md
+```
+
+Alternatively, copy `leaflet.plug.js` anywhere into your space and run `Plugs: Reload`.
+
+### SilverBullet v1
+
+Add
 
 ```
 - "github:jim-fx/silverbullet-leaflet/leaflet.plug.js"
 ```
 
-to your `Space-Config` file, run `Plugs: Update` command and off you go!
+to your `Space-Config` file and run the `Plugs: Update` command.
 
