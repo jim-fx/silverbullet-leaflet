@@ -19,13 +19,17 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Setup Deno
-        uses: denoland/setup-deno@v1
+        uses: denoland/setup-deno@v2
         with:
-          deno-version: v1.x
+          deno-version: v2.x
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
 
       - uses: pnpm/action-setup@v4
         with:
-          version: 10
+          version: 11
 
       - name: Run release.ts to update YAML version
         run: deno run -A .github/scripts/release.ts
@@ -33,10 +37,10 @@ jobs:
           GIT_TAG: ${{ github.ref_name }}
 
       - name: Install dependencies
-        run: deno task install-deps
+        run: pnpm install-deps
 
       - name: Build plugin
-        run: deno task build
+        run: pnpm build
 
       - name: Generate changelog
         run: deno run -A .github/scripts/changelog.ts
@@ -56,5 +60,6 @@ jobs:
         with:
           files: |
             CHANGELOG.md
+            PLUG.md
             leaflet.plug.js
             leaflet.plug.yaml
