@@ -1,8 +1,9 @@
-import { asset, YAML } from "@silverbulletmd/silverbullet/syscalls";
-import { WidgetContent } from "@silverbulletmd/silverbullet/types";
+import { asset } from "@silverbulletmd/silverbullet/syscalls";
+import { syscall } from "@silverbulletmd/silverbullet/syscall";
+import type { CodeWidgetContent } from "@silverbulletmd/silverbullet/type/client";
 
-export async function widget(bodyText: string): Promise<WidgetContent> {
-  const data = await YAML.parse(bodyText);
+export async function widget(bodyText: string): Promise<CodeWidgetContent> {
+  const data = await syscall("yaml.parse", bodyText);
   const mapJs = await asset.readAsset("leaflet", "assets/map.js");
   const mapCss = await asset.readAsset("leaflet", "assets/map.css");
   return Promise.resolve({

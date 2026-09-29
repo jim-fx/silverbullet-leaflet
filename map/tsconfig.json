@@ -7,7 +7,7 @@
       "ES2020"
     ],
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "Bundler",
     "jsx": "react-jsx", // For React 17+ (with automatic JSX transform)
     "allowJs": false,
     "strict": true,
@@ -20,7 +20,7 @@
     "allowSyntheticDefaultImports": true
   },
   "include": [
-    "src"
+    "."
   ],
   "exclude": [
     "node_modules",

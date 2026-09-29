@@ -1,0 +1,15 @@
+{
+  "name": "silverbullet-leaflet",
+  "version": "0.0.3",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "install-deps": "pnpm install && pnpm --dir map install",
+    "build:map": "pnpm --dir map build",
+    "build": "pnpm build:map && plug-compile leaflet.plug.yaml",
+    "watch": "plug-compile leaflet.plug.yaml -w"
+  },
+  "dependencies": {
+    "@silverbulletmd/silverbullet": ">=2.5.3"
+  }
+}

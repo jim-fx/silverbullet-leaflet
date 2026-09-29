@@ -17,7 +17,7 @@ function ErrorContent({ error }: { error: ZodError<MapData> }) {
     <div>
       <p>Invalid config</p>
       {error.issues.map((issue, i) => {
-        return <div key={i}>{issue.message} - {issue.path}</div>;
+        return <div key={i}>{issue.message} - {issue.path.map(String).join(".")}</div>;
       })}
     </div>
   );

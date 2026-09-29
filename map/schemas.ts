@@ -19,7 +19,7 @@ export const MarkerDataSchema = z.object({
 }).superRefine((data, ctx) => {
   if (data.iconBackground && !data.icon) {
     ctx.addIssue({
-      code: z.ZodIssueCode.custom,
+      code: "custom",
       message: "iconBackground can only be used when icon is set",
       path: ["iconBackground"],
     });

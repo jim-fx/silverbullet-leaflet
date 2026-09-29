@@ -41,22 +41,22 @@ markers:
 ## Build
 
 ```bash
-# Install Dependencies
-deno task install-deps
+# Install dependencies (requires Node.js and pnpm)
+pnpm install-deps
 # Build the plug
-deno task build
+pnpm build
 ```
 
 Or to watch for changes and rebuild automatically
 
 ```shell
-deno task watch
+pnpm watch
 ```
 
-Then, copy the resulting `.plug.js` file into your space's `_plug` folder. Or build and copy in one command:
+Then, copy the resulting `.plug.js` file into your space. Or build and copy in one command:
 
 ```shell
-deno task build && cp *.plug.js /my/space/_plug/
+pnpm build && cp leaflet.plug.js /my/space/
 ```
 
 SilverBullet will automatically sync and load the new version of the plug, just watch the logs (browser and server) to see when this happens.
