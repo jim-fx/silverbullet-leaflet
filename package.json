@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "install-deps": "pnpm install && pnpm --dir map install",
+    "install-deps": "pnpm install",
     "build:map": "pnpm --dir map build",
     "build": "pnpm build:map && plug-compile leaflet.plug.yaml",
     "watch": "plug-compile leaflet.plug.yaml -w"
